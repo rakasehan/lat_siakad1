@@ -15,26 +15,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.app.dashboard-siakad', ['type_menu' => '']);
-    //return view('pages.auth.auth.login');
-});
-
-Route::get('/login', function () {
     return view('pages.auth.auth-login');
     //return view('pages.auth.auth.login');
-})-> name('login');
-
-Route::get('/register', function () {
-    return view('pages.auth.auth-register');
-    //return view('pages.auth.auth.login');
-})-> name('register');
-
-Route::get('/forgot', function () {
-    return view('pages.auth.auth-forgot-password');
-    //return view('pages.auth.auth.login');
 });
 
-Route::get('/reset-password', function () {
-    return view('pages.auth.auth-reset-password');
+Route::middleware(['auth'])->group(function (){
+    Route::get('home', function () {
+           return view('pages.app.dashboard-siakad', ['type_menu' => '']);
+    })->name('home');
+});
+
+//Route::get('/login', function () {
+//    return view('pages.auth.auth-login');
     //return view('pages.auth.auth.login');
-})->name('reset-password');
+//})-> name('login');
+
+//Route::get('/register', function () {
+  //  return view('pages.auth.auth-register');
+    //return view('pages.auth.auth.login');
+//})-> name('register');
+
+//Route::get('/forgot', function () {
+  //  return view('pages.auth.auth-forgot-password');
+    //return view('pages.auth.auth.login');
+//});
+
+// Route::get('/reset-password', function () {
+//    return view('pages.auth.auth-reset-password');
+//     return view('pages.auth.auth.login');
+// })->name('reset-password');

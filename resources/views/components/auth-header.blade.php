@@ -1,4 +1,4 @@
- <div class="login-brand">
+<div class="login-brand">
      <img src="{{ asset('img/stisla-fill.svg') }}"
          alt="logo"
          width="100"
